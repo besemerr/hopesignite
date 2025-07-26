@@ -20,7 +20,7 @@ title: "Hopes Ignite"
         <h1>HOLLOW&nbsp;VESSEL<br></h1>
             <h4>
             The new album from <strong>Hopes Ignite</strong><br>
-            <a class="btn" href="music.html">Listen Now</a>
+            <a class="btn" href="/music/">Listen Now</a>
             </h4>
     </section>
 </main>
