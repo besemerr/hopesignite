@@ -91,13 +91,11 @@ img {
 }
 
 a img {
-  height: 200px;
+  height: 125px;
 }
 
 nav {
-  margin-left: calc(25vw + 7.5rem);
   margin-top: 0.8rem;
-  min-width: 50vw;
 }
 
 nav a {
@@ -105,8 +103,8 @@ nav a {
   padding-right: 1rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-size: 1.5rem;
+  letter-spacing: 1px;
+  font-size: 1.25rem;
 }
 
 a {
