@@ -1,34 +1,42 @@
-:root {
-  --bg: #0a0d0f;
-  --primary: #e2e2e2;
-  --accent: #d74320;
-}
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
-  height: 100%;
-  scroll-behavior: smooth;
-  background: var(--bg);
-  color: var(--primary);
-  font-family: "Roboto Condensed", sans-serif;
+:root {
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                Roboto, "Helvetica Neue", Arial, sans-serif;
+  --text-color: #fff;
+  --accent-color: #d05320;
+  --bg-color: rgba(10, 13, 15, 0.40);
+  --bg-opacity: 0.1;
 }
 
-a {
-  color: var(--accent);
-  text-decoration: none;
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  position: relative;
+  color: var(--text-color);
+  background-color: #000;
+  overflow-x: hidden;
+  z-index: -1;
 }
 
-a:hover {
-  color: var(--primary);
-}
-
-img {
-  padding: 20px;
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("/src/assets/images/HI-pattern2.png") 
+              center/cover no-repeat fixed;
+  opacity: var(--bg-opacity);
+  z-index: -1;
 }
 
 header {
@@ -42,62 +50,118 @@ header {
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(6px);
-  background: rgba(10, 13, 15, 0.40);
-  z-index: 1000;
+  background: var(--bg-color);
+  z-index: 2;
 }
 
-nav a {
-  margin-left: 1.5rem;
-  margin-top: 7.5rem;
-  padding: 1.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 3px;
+footer {
+  position:relative;
+  padding: 1rem;
+  justify-content: center;
+  text-align: center;
+  font-size: 1rem;
+  backdrop-filter: blur(6px);
+  background: var(--bg-color);
+  z-index: 2;
 }
 
 main {
+  min-height: calc(50vh - 1rem);
   position: relative;
-  padding-top: calc(80px + 2rem);
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   text-align: center;
   z-index: 1;
   overflow: hidden;
+  flex-grow: 1;
+  opacity: 1;
+  margin-bottom: auto;;
 }
 
-/* Background image with opacity layer using ::before */
-main::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: url("assets/img/HI-pattern2.png") center/cover no-repeat;
-  opacity: 0.07;
-  z-index: 0;
-}
-
-main > * {
-  position: relative;
-  z-index: 1;
-}
-
-.section {
-  padding: 1rem 2rem;
-  max-width: 600px;
-  margin: auto;
-  color: #fff;
-}
-
-footer {
-  padding: 2rem;
+section {
+  max-width: 60%;
+  margin-top: 25vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
   text-align: center;
-  font-size: 0.85rem;
-  background: rgba(10, 13, 15, 0.40);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a img {
+  height: 150px;
+}
+
+nav {
+  margin-top: 0.8rem;
+}
+
+nav a {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1.5rem;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+h1 h2 h3 h4 {
+  width: 50%;
+  margin-left: 25%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent-color);
+}
+
+h4 {
+  margin-bottom: 1rem;
+  font-family: 'Anton', sans-serif;
+  color: var(--text-color);
+  font-size: 1.25rem;
+}
+
+.hero {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.75rem;
+  border: 2px solid var(--accent-color);
+  background: var(--accent-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all 0.3s;
+  color: var(--text-color);
+}
+
+.btn:hover {
+  background: var(--bg-color);
+  color: var(--accent-color);
+}
+
+a:hover {
+  color: var(--text-color);
 }
 
 /* Intro lock */
@@ -108,25 +172,76 @@ body.intro-active {
 
 /* Intro video */
 #introVid {
-  position: absolute;
-  z-index: 2000;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 0;
   width: 100%;
-  max-width: 1280px;
-  background: #000;
+  max-width: 1080px;
+  background: var(--bg-color);
   object-fit: cover;
   border: 0;
 }
 
-/* Responsive */
+/* ========== Mobile & Small Tablets ========== */
 @media (max-width: 768px) {
-  nav a {
-    margin-left: 0.75rem;
-    margin-top: 6rem;
-    padding: 1rem 0.75rem;
-    letter-spacing: 2px;
+  /* Ease up the header/footer padding and font-sizes */
+  header,
+  footer {
+    padding: 0.75rem;
+    font-size: 0.9rem;
   }
 
-  .hero-content h1 {
-    font-size: 2.8rem !important;
+  /* Allow sections to fill almost the full width */
+  section {
+    max-width: 90%;
+    margin-top: 15vh;
+  }
+
+  /* Headings full-width & centered */
+  h1, h2, h3, h4 {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  /* Reduce nav link size */
+  nav a {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  /* Tweak hero text and button sizing */
+  .hero {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .btn {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Main content spacing */
+  main {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Video intro tweaks */
+  #introVid {
+    margin-top: 0;
+    max-width: 100%;
+  }
+
+  /* Ensure background stays centered */
+  body::before {
+    background-position: center;
   }
 }
