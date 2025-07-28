@@ -66,6 +66,7 @@ footer {
 }
 
 main {
+  min-height: calc(50vh - 1rem);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -75,12 +76,15 @@ main {
   overflow: hidden;
   flex-grow: 1;
   opacity: 1;
+  margin-bottom: auto;;
 }
 
 section {
-  min-height: calc(50vh - 1rem);
   max-width: 60%;
-  margin: auto;
+  margin-top: 25vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: auto;
   text-align: center;
 }
 
@@ -91,17 +95,15 @@ img {
 }
 
 a img {
-  height: 200px;
+  height: 150px;
 }
 
 nav {
-  margin-left: calc(25vw + 7.5rem);
   margin-top: 0.8rem;
-  min-width: 50vw;
 }
 
 nav a {
-  // padding-left: 1rem;
+  padding-left: 1rem;
   padding-right: 1rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -170,13 +172,76 @@ body.intro-active {
 
 /* Intro video */
 #introVid {
-  margin-top: 300px;
-  margin-bottom: 3rem;
-  position:relative;
+  margin-bottom: 1.5rem;
+  position: relative;
   z-index: 0;
   width: 100%;
-  max-width: 1280px;
+  max-width: 1080px;
   background: var(--bg-color);
   object-fit: cover;
   border: 0;
+}
+
+/* ========== Mobile & Small Tablets ========== */
+@media (max-width: 768px) {
+  /* Ease up the header/footer padding and font-sizes */
+  header,
+  footer {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  /* Allow sections to fill almost the full width */
+  section {
+    max-width: 90%;
+    margin-top: 15vh;
+  }
+
+  /* Headings full-width & centered */
+  h1, h2, h3, h4 {
+    width: 100%;
+    margin: 0.5rem 0;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+  }
+
+  h4 {
+    font-size: 1rem;
+  }
+
+  /* Reduce nav link size */
+  nav a {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+
+  /* Tweak hero text and button sizing */
+  .hero {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .btn {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Main content spacing */
+  main {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Video intro tweaks */
+  #introVid {
+    margin-top: 0;
+    max-width: 100%;
+  }
+
+  /* Ensure background stays centered */
+  body::before {
+    background-position: center;
+  }
 }

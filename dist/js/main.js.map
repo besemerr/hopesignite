@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/scripts/main.js"],
+  "sourcesContent": ["// src/scripts/main.js\nconsole.log(\"Hopes Ignite: JavaScript loaded\");\n"],
+  "mappings": ";;AACA,UAAQ,IAAI,iCAAiC;",
+  "names": []
+}

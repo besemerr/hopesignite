@@ -10,7 +10,7 @@ title: "Merch ~ Hopes Ignite"
         Exclusive tees, hoodies, and vinyl available soon.
         </h4>
         <img
-          src="/src/assets/img/vinyl_mockup.png"
+          src="/src/assets/images/vinyl_mockup.png"
           alt="Vinyl Mockup"
           style="width: 100%; max-width: 800px; margin-top: 2rem"
         />
